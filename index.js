@@ -8,11 +8,14 @@ let cartasSacadas = []; // Array para guardar las 2 cartas
 let parejasEncontradas = 0;
 let pareja = false;
 let bloq = false; // Controla si se pueden hacer más clics
+let btnReiniciar;
 
 window.onload = ()=>{
     divGeneral = document.getElementById("cartas");
     divTiempo = document.getElementById("timeout");
+    btnReiniciar = document.getElementById("reiniciar");
     jugar();
+    botonReiniciar();
 }
 
 //funcion que va a inicializar el intervalo del cronometro
@@ -45,7 +48,6 @@ function timeoutActualizar(){
             carta.style.backgroundImage = "url('./fondo.jpg')"; 
             carta.classList.remove("encontrada");
         });
-        reiniciarJuego();
     }
 }
 
@@ -77,7 +79,6 @@ function prepararCartas(){
 }
 
 function jugar(){
-    reiniciarStats();
     barajeo = randomizarCartas(); //agregamos ya las cartas barajadas
     prepararCartas();
     timeoutStart(); //empezamos la cuenta atras del cronometro
@@ -180,4 +181,17 @@ function reiniciarStats(){
     bloq = false;
     interval = null;
     divTiempo.innerHTML = "02:00";
+}
+
+function botonReiniciar(){
+    btnReiniciar.addEventListener("click", (e)=>{
+        if(interval){
+            clearInterval(interval);
+            interval = null;
+        }
+        if(e.target){
+            reiniciarStats();
+            reiniciarJuego();
+        }
+    });
 }

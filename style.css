@@ -24,3 +24,9 @@ body{
 #timeout{
     font-size: 40px
 }
+
+#reiniciar{
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+}
