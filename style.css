@@ -1,0 +1,26 @@
+body{
+    background-color:rgb(112, 232, 240);
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+}
+
+#cartas{
+    margin: 30px auto;
+    width: 650px;
+}
+
+#cartas .cartasDiv{
+    display: inline-block;
+    width: 100px;
+    height: 140px;
+    margin: 10px;
+    background-image: url("./fondo.jpg");
+    background-size: cover;
+}
+
+
+#timeout{
+    font-size: 40px
+}
